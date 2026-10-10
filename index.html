@@ -60,7 +60,7 @@ function draw(T=1e9){
  ctx.font="700 42px "+F;
  const blocks=msgs.map(m=>wrap('"'+m.toUpperCase()+'"',iw-20));
  const LH=56,GAP=34;let qh=0;blocks.forEach(b=>qh+=b.length*LH+GAP);
- const ph=500+qh+10;total=1.2+msgs.length*step+1.8;
+ const ph=545+qh+10;total=1.2+msgs.length*step+1.8;
  // panel
  const pp=e3(r(0,.5));
  const blk=false;
@@ -71,11 +71,12 @@ function draw(T=1e9){
  ctx.font="italic 700 "+fs+"px "+F;while(ctx.measureText(nick).width>iw&&fs>40){fs-=4;ctx.font="italic 700 "+fs+"px "+F}
  reveal(px+pad,py+pad-30,iw,fs*1.3,e3(r(.3,.5)),()=>{ctx.font="italic 700 "+fs+"px "+F;if(blk)bk(px+pad-20,py+pad-5,ctx.measureText(nick).width+40,130);ctx.fillStyle=col;ctx.fillText(nick,px+pad,py+pad+105)});
  reveal(px+pad,py+pad+110,iw,150,e3(r(.45,.5)),()=>{ctx.font="italic 700 132px "+F;if(blk)bk(px+pad-20,py+pad+130,ctx.measureText("RADIO").width+40,125);ctx.fillStyle="#fff";ctx.fillText("RADIO",px+pad,py+pad+235)});
- reveal(px+pad,py+pad+250,330,190,e3(r(.6,.5)),()=>{ctx.font="italic 900 200px "+F;if(blk)bk(px+pad-20,py+pad+255,ctx.measureText($("num").value).width+40,175);ctx.fillStyle=col;ctx.fillText($("num").value,px+pad,py+pad+415)});
- const L=imgs[team],ls=150,lx=px+pw-pad-ls-10,ly=py+pad+265,lp=e3(r(.75,.5));
+ reveal(px+pad,py+pad+245,iw,55,e3(r(.52,.5)),()=>{ctx.font="italic 700 44px "+F;ctx.fillStyle="rgba(255,255,255,.85)";ctx.fillText("WEEKENDOWA LIGA F1",px+pad,py+pad+285)});
+ reveal(px+pad,py+pad+295,330,190,e3(r(.6,.5)),()=>{ctx.font="italic 900 200px "+F;if(blk)bk(px+pad-20,py+pad+255,ctx.measureText($("num").value).width+40,175);ctx.fillStyle=col;ctx.fillText($("num").value,px+pad,py+pad+460)});
+ const L=imgs[team],ls=150,lx=px+pw-pad-ls-10,ly=py+pad+310,lp=e3(r(.75,.5));
  if(L.complete&&L.naturalWidth&&lp>0){const k=Math.min(ls/L.naturalWidth,ls/L.naturalHeight)*(.6+.4*lp),w=L.naturalWidth*k,h=L.naturalHeight*k;ctx.save();ctx.globalAlpha=lp;ctx.drawImage(L,lx+(ls-w)/2,ly+(ls-h)/2,w,h);ctx.restore()}
  // quotes
- ctx.textAlign="center";ctx.font="700 42px "+F;let y=py+500+LH*0.78;
+ ctx.textAlign="center";ctx.font="700 42px "+F;let y=py+545+LH*0.78;
  blocks.forEach((b,i)=>{
   const top=y-LH*0.78,h=b.length*LH,u=r(1.2+i*step,.5),x0=px+pad;
   const a=e3(clamp(u*2)),bb=e3(clamp(u*2-1));
